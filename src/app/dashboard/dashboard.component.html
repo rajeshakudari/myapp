@@ -1,0 +1,141 @@
+<main style="background-color: #edf8f947;">
+    <section>
+        <div class="container-fluid py-5">
+            <div class="row">
+                <div class="col-md-12"><h4 class="heading text-center py-3">Dashboard</h4></div>
+                <div class="col-md-4">
+                  <div class="chart_div">
+                    <div>
+                      <ngx-charts-pie-chart [results]="datas" [labels]="true"></ngx-charts-pie-chart>
+                    </div>
+                </div>
+                <div><h5 class="text-center py-3">Pie Chart Graph</h5></div>
+              </div>
+                <div class="col-md-4">
+                  <div class="chart_div">
+                    <ngx-charts-line-chart
+                    [view]="view"
+                    [scheme]="colorSchemetwo"
+                    [results]="datas"
+                    [gradient]="gradient"
+                    [xAxis]="showXAxis"
+                    [yAxis]="showYAxis"
+                    [legend]="showLegend"
+                    [showXAxisLabel]="showXAxisLabel"
+                    [showYAxisLabel]="showYAxisLabel"
+                    [xAxisLabel]="xAxisLabel"
+                    [yAxisLabel]="yAxisLabel">
+                   </ngx-charts-line-chart>
+                  </div>
+                  <div><h5 class="text-center py-3">Line Chart Graph</h5></div>
+                </div>
+                <div class="col-md-4">
+                  <div class="chart_div">
+                    <div flex-gt-sm="50">
+                      <div class="pad">
+                        <div [style.height.px]="250">
+                          <ngx-charts-bar-vertical
+                            [results]="datas"
+                            [view]=[500,250]
+                            [scheme]="{ domain: [ '#30E07B', '#E75691', '#00C0FF', '#5D6A75' ] }"
+                            [barPadding]="10"
+                            [gradient]="true"
+                            [xAxis]="true"
+                            [yAxis]="true"
+                            [legend]="true"
+                            [legendTitle]="'Legenda'"
+                            [xAxisLabel]="'Jaar'"
+                            [yAxisLabel]="'Aantal Leden'"
+                            [showXAxisLabel]="true"
+                            [showYAxisLabel]="true">
+                          </ngx-charts-bar-vertical>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div><h5 class="text-center py-3">Bar Chart Graph</h5></div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                   <div class="my-2"> <input style="width: 15%;" [(ngModel)]="term" type="text" class="form-control my-2" placeholder="Search"></div>
+                </div>
+                <div class="col-md-6">
+                <div class="my-2"><select style="width: 15%;float:right" [(ngModel)]="termone" class="form-control">
+                  <option class="dropdown-item" disabled selected value="undefined">Select </option>
+                  <option>5</option>
+                  <option>10</option>
+                </select>
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">Serial No:</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Value of Sales (lakhs)</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let item of datas | customerEmailFilter:term; let i= index;">
+                                <th scope="row">{{1+i}}</th>
+                                <td>{{item.name}}</td>
+                                <td>{{item.value}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div><button class="btn_add btn-success" (click)="adddetails()">Add details </button></div>
+                        <div class="new_form" *ngIf="form_d">
+                          <form [formGroup]="newformdata" (ngSubmit)="newform()">
+                          <div class="row">
+                            <div class="col">
+                              <input type="text" formControlName="name" class="form-control" placeholder="Enter Company Name">
+                            </div>
+                            <div class="col">
+                              <input type="number" class="form-control" formControlName="value" placeholder="Enter value">
+                            </div>
+                            <div class="col">
+                              <input type="number" class="form-control" formControlName="id" placeholder="Enter id number">
+                            </div>
+                            <!-- <div class="col">
+                              <input type="text" class="form-control" formControlName="nameseries" placeholder="Enter series of month">
+                            </div>
+                            <div class="col">
+                              <input type="number" class="form-control" formControlName="valueseries" placeholder="Enter series value">
+                            </div> -->
+
+                            <div formArrayName="series">
+                              <div style="margin-top:5px; margin-bottom:5px;">
+                                <fieldset>
+                                  <div>
+                                    <div class="col">
+                                      <div class="form-group">
+                                        <input type="text" class="form-control"  placeholder="name of the month"  formControlName="name" style="margin-right:5px;">
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="form-group">
+                                        <input formControlName="value"  class="form-control"  style="margin-right:5px;" type="number" placeholder="Value"/>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </fieldset>
+                              </div>
+                            </div>
+
+                            <div class="col">
+                              <button class="btn-sm btn-success">Submit</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

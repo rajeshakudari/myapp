@@ -1,0 +1,224 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "Name": "rajesh",
+      "Email": "rajesh@gmail.com",
+      "Designation": "UI Developer",
+      "year": 2015
+    },
+    {
+      "id": 2,
+      "Name": "rajesh",
+      "Email": "rajesh@gmail.com",
+      "Designation": "Angular Developer",
+      "year": 2019
+    },
+    {
+      "id": 3,
+      "Name": "rajesh",
+      "Email": "rajesh@gmail.com",
+      "Designation": "Senior Software Engineer",
+      "year": 2019
+    },
+    {
+      "Name": "kranthi",
+      "Email": "kranthi@gmail.com",
+      "Designation": "Devops",
+      "id": 4,
+      "year": 2016
+    },
+    {
+      "Name": "Surya",
+      "Email": "surya@gmail.com",
+      "Designation": "Testing Engineer",
+      "id": 5,
+      "year": 2017
+    },
+    {
+      "Name": "sreekanth",
+      "Email": "sreekanth@gmail.com",
+      "Designation": "Frontend Developer",
+      "id": 6,
+      "year": 2015
+    },
+    {
+      "Name": "srinivas",
+      "Email": "srinivas@gmail.com",
+      "Designation": "frontend developer",
+      "id": 7,
+      "year": 2020
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "datatwo": [
+    {
+      "name": "Tata",
+      "value": 10,
+      "series": [
+        {
+          "name": "Aug",
+          "value": 14
+        },
+        {
+          "name": "Sep",
+          "value": 35
+        },
+        {
+          "name": "Oct",
+          "value": 4
+        },
+        {
+          "name": "Nov",
+          "value": 17
+        },
+        {
+          "name": "Dec",
+          "value": 14
+        },
+        {
+          "name": "Jan",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "name": "Maruthi Suzuki",
+      "value": 11,
+      "series": [
+        {
+          "name": "Aug",
+          "value": 14
+        },
+        {
+          "name": "Sep",
+          "value": 35
+        },
+        {
+          "name": "Oct",
+          "value": 4
+        },
+        {
+          "name": "Nov",
+          "value": 17
+        }
+      ]
+    },
+    {
+      "name": "Audi",
+      "value": 0.79,
+      "series": [
+        {
+          "name": "Aug",
+          "value": 14
+        },
+        {
+          "name": "Sep",
+          "value": 35
+        },
+        {
+          "name": "Oct",
+          "value": 4
+        },
+        {
+          "name": "Nov",
+          "value": 17
+        },
+        {
+          "name": "Dec",
+          "value": 14
+        },
+        {
+          "name": "Jan",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "name": "BMW",
+      "value": 0.88,
+      "series": [
+        {
+          "name": "Aug",
+          "value": 14
+        },
+        {
+          "name": "Sep",
+          "value": 35
+        },
+        {
+          "name": "Oct",
+          "value": 4
+        },
+        {
+          "name": "Nov",
+          "value": 17
+        },
+        {
+          "name": "Dec",
+          "value": 14
+        },
+        {
+          "name": "Jan",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "name": "Hyundai",
+      "value": 1,
+      "series": [
+        {
+          "name": "Aug",
+          "value": 14
+        },
+        {
+          "name": "Sep",
+          "value": 35
+        },
+        {
+          "name": "Oct",
+          "value": 4
+        },
+        {
+          "name": "Nov",
+          "value": 17
+        },
+        {
+          "name": "Dec",
+          "value": 14
+        },
+        {
+          "name": "Jan",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "name": "Kia Motors",
+      "value": 0.43,
+      "id": 6,
+      "series": [
+        {
+          "name": "Aug",
+          "value": 14
+        }
+      ]
+    },
+    {
+      "name": "Ford Motors",
+      "value": 3,
+      "id": 7,
+      "series": []
+    }
+  ]
+}
