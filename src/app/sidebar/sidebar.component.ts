@@ -9,7 +9,7 @@ export class SidebarComponent implements OnInit {
 
   @Output() private test = new EventEmitter<any>();
 
-  num = 3;
+  num = 0;
 
 generateNumber1(e){
   this.test.emit({name:e,value:this.num})
@@ -17,7 +17,7 @@ generateNumber1(e){
 
 constructor(){}
 ngOnInit(){
-      
+
 }
 
 }

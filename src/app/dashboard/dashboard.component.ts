@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {  HttpClient } from '@angular/common/http';
 import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
 import { NewserviceService } from '../newservice.service';
 
@@ -15,10 +14,9 @@ export class DashboardComponent implements OnInit {
   form_d = false;
   data: any;
   datas: any;
-  url = 'http://localhost:3000/datatwo/';
   term: any;
   termone: any;
-
+  pageSize: number = 5;
 
   colorScheme = {
     domain: ['#08DDC1', '#FFDC1B', '#FF5E3A']
@@ -40,17 +38,13 @@ export class DashboardComponent implements OnInit {
 
 
 
-  constructor(private http: HttpClient, private fb: FormBuilder, private s: NewserviceService) {
-    // this.setCities();
+  constructor( private fb: FormBuilder, private s: NewserviceService) {
+
    }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:3000/posts').subscribe( res =>{
-      this.data = res;
-      console.log(this.data);
-    });
 
-    this.http.get('http://localhost:3000/datatwo').subscribe( res =>{
+    this.s.getdata().subscribe( res =>{
       this.datas = res;
       console.log(this.datas);
     });
@@ -59,33 +53,49 @@ export class DashboardComponent implements OnInit {
       name: ['', Validators.required],
       value: ['', Validators.required],
       id: ['', Validators.required],
-      series: this.fb.array([
-        this.fb.group({
-          name: ['', Validators.required],
-          value: ['', Validators.required]
-        })
-      ])
+      series: this.fb.array([this.series])
     })
+  }
+
+  get series(): FormGroup {
+    return this.fb.group({
+      name: "",
+      value: ""
+    });
   }
 
   public adddetails() {
     this.form_d = true;
   }
 
+  addseries() {
+    (this.newformdata.get("series") as FormArray).push(this.series);
+  }
+
+  deleteseries(index) {
+    (this.newformdata.get("series") as FormArray).removeAt(index);
+  }
+
   public  newform(){
     let data = this.newformdata.value;
-    // console.log(this.newformdata.value);
     if (this.newformdata.invalid) {
         console.log('err');
     } else {
       console.log('SUCCESS!! :-)\n\n' + JSON.stringify(this.newformdata.value));
-     return this.http.post(this.url, data).subscribe(res => { console.log(res) });
+     this.s.postdata(data).subscribe(res => { console.log(res) });
     }
-
   }
 
-
-
+  onPageSizeChanged(event) { 
+    if (this.pageSize == 5  ) { 
+     let newdata= this.datas.slice(0,5);
+      console.log(newdata);
+    }  else if ( this.pageSize == 10) {
+      let newdata= this.datas.slice(0,10);
+      console.log(newdata);
+    }
+    return this.datas;
+  }
 
 }
 

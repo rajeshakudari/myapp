@@ -61,10 +61,11 @@
                    <div class="my-2"> <input style="width: 15%;" [(ngModel)]="term" type="text" class="form-control my-2" placeholder="Search"></div>
                 </div>
                 <div class="col-md-6">
-                <div class="my-2"><select style="width: 15%;float:right" [(ngModel)]="termone" class="form-control">
+                <div class="my-2">
+                  <select style="width: 15%;float:right"  id="PerPage" [(ngModel)]="pageSize" class="form-control">
                   <option class="dropdown-item" disabled selected value="undefined">Select </option>
-                  <option>5</option>
-                  <option>10</option>
+                  <option [ngValue]="5">5</option>
+                  <option [ngValue]="10">10</option>
                 </select>
                 </div>
                 </div>
@@ -101,26 +102,17 @@
                             <div class="col">
                               <input type="number" class="form-control" formControlName="id" placeholder="Enter id number">
                             </div>
-                            <!-- <div class="col">
-                              <input type="text" class="form-control" formControlName="nameseries" placeholder="Enter series of month">
-                            </div>
-                            <div class="col">
-                              <input type="number" class="form-control" formControlName="valueseries" placeholder="Enter series value">
-                            </div> -->
-
+                           <div class="col"> <button class="btn btn-sm btn-success" type="button" (click)="addseries()">Add Series</button></div>
                             <div formArrayName="series">
                               <div style="margin-top:5px; margin-bottom:5px;">
                                 <fieldset>
-                                  <div>
+                                  <div class="teams" *ngFor=" let team of newformdata.get('series')['controls']; let teamIndex = index" [formGroupName]="teamIndex">
                                     <div class="col">
-                                      <div class="form-group">
                                         <input type="text" class="form-control"  placeholder="name of the month"  formControlName="name" style="margin-right:5px;">
-                                      </div>
                                     </div>
                                     <div class="col">
-                                      <div class="form-group">
                                         <input formControlName="value"  class="form-control"  style="margin-right:5px;" type="number" placeholder="Value"/>
-                                      </div>
+                                      <label> <button class="btn btn-sm btn-danger" (click)="deleteseries(teamIndex)">x</button></label>
                                     </div>
                                   </div>
                                 </fieldset>

@@ -22,9 +22,6 @@ export class LoginComponent implements OnInit {
     })
   }
 
-    // convenience getter for easy access to form fields
-    get f() { return this.loginform.controls; }
-
   Onsubmit() {
     this.submitted = true;
     if (this.loginform.invalid) {
