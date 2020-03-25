@@ -1,0 +1,16 @@
+
+
+<main>
+    <div style="width: 70%;display: inline-block;"> 
+        <h2>Component main</h2>
+        <input [(ngModel)]="uservalue">
+        <button (click)="submit()">Submit</button>
+        
+            <br>
+            <div><button>{{randomNumber}}</button></div> 
+        <p>{{uservalue}}</p>  
+    </div>
+    <div style="width: 30%;display: inline-block;">
+    <app-sidebar (test)="onNumberGenerated($event)"></app-sidebar>
+    </div>
+</main>
